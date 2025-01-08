@@ -3,9 +3,9 @@
 #include <string.h>
 #include <locale.h>
 
-//Aplicação para efetuar reservas em um restaurante
+//AplicaÃ§Ã£o para efetuar reservas em um restaurante
 //O restaurante funciona de quinta a domingo
-//A aplicação mostrará a lista de reservas e quantas pessoas precisarão de assento a cada dia de funcionamento
+//A aplicaÃ§Ã£o mostrarÃ¡ a lista de reservas e quantas pessoas precisarÃ£o de assento a cada dia de funcionamento
 typedef struct {
     char nome[100];
     char cpf[15];
@@ -13,7 +13,7 @@ typedef struct {
     int quantPessoas;
 } Reserva;
 
-#define MAX_RESERVAS 50 // Definir um número máximo de reservas
+#define MAX_RESERVAS 50 // Definir um nÃºmero mÃ¡ximo de reservas
 
 Reserva reservas[MAX_RESERVAS];
 int totalReservas = 0;
@@ -47,7 +47,7 @@ int main() {
                 printf("\nEncerrando o programa...\n");
                 break;
             default:
-                printf("\nOpção inválida. Tente novamente.\n");
+                printf("\nOpÃ§Ã£o invÃ¡lida. Tente novamente.\n");
         }
     } while (opcao != 4);
 
@@ -64,13 +64,13 @@ void exibirMenu() {
     printf("2 - Listar Reservas\n");
     printf("3 - Total De Pessoas Por Dia\n");
     printf("4 - Sair\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opÃ§Ã£o: ");
 }
 
 // Cadastro
 void fazerReserva() {
     if (totalReservas >= MAX_RESERVAS) {
-        printf("\nLimite máximo de reservas alcançado!\n");
+        printf("\nLimite mÃ¡ximo de reservas alcanÃ§ado!\n");
         system("pause");
         return;
     }
@@ -88,7 +88,7 @@ void fazerReserva() {
     novaReserva.cpf[strcspn(novaReserva.cpf, "\n")] = '\0';
 
     do {
-        printf("Dia da reserva (1-Quinta, 2-Sexta, 3-Sábado, 4-Domingo): ");
+        printf("Dia da reserva (1-Quinta, 2-Sexta, 3-SÃ¡bado, 4-Domingo): ");
         scanf("%d", &novaReserva.diaReserva);
     } while (novaReserva.diaReserva < 1 || novaReserva.diaReserva > 4);
 
@@ -116,13 +116,13 @@ void listarReservas() {
         printf("Nome: %s\n", reservas[i].nome);
         printf("CPF: %s\n", reservas[i].cpf);
         printf("Dia: %d\n", reservas[i].diaReserva);
-        printf("Número de Pessoas na reserva: %d\n", reservas[i].quantPessoas);
+        printf("NÃºmero de Pessoas na reserva: %d\n", reservas[i].quantPessoas);
         printf("===============================\n");
     }
     system("pause");
 }
 
-// Número pessoas a cada dia
+// NÃºmero pessoas a cada dia
 void totalPessoasPorDia() {
     if (totalReservas == 0) {
         printf("\nNenhuma reserva cadastrada.\n");
@@ -131,11 +131,11 @@ void totalPessoasPorDia() {
     }
 
     int dia;
-    printf("\nDigite o número correspondente ao dia (1-Quinta, 2-Sexta, 3-Sábado, 4-Domingo): ");
+    printf("\nDigite o nÃºmero correspondente ao dia (1-Quinta, 2-Sexta, 3-SÃ¡bado, 4-Domingo): ");
     scanf("%d", &dia);
 
     if (dia < 1 || dia > 4) {
-        printf("\nDia inválido! Tente novamente.\n");
+        printf("\nDia invÃ¡lido! Tente novamente.\n");
         system("pause");
         return;
     }
